@@ -1,0 +1,45 @@
+<aside class="profile-card">
+  <ng-container *ngFor="let user of data.results">
+    <header>
+      <img src="{{ user.picture.large }}">
+      <h1>
+        {{ user.name.first }} {{ user.name.last }}
+      </h1>
+      <h2>
+        {{ user.location.city }} - {{ user.location.state }}
+      </h2>
+    </header>
+    <div class="profile-bio">
+      <p>
+        Address: {{ user.location.street }}, {{ user.location.city }}, {{ user.location.state }}
+      </p>
+      <p>
+          Birthday: {{ user.dob.date | date: 'dd-MM-yyyy' }}
+      </p>
+      <br>
+      <p>
+          Username: {{ user.login.username }}
+      </p>
+      <p>
+          Password: {{ user.login.password }}
+      </p>
+    </div>
+    <ul class="profile-social-links">
+      <li>
+        <a href="tel:{{ user.phone }}">
+          <img src="https://image.flaticon.com/icons/svg/126/126509.svg">
+        </a>
+      </li>
+      <li>
+        <a href="mailto:{{ user.email }}">
+          <img src="https://image.flaticon.com/icons/svg/126/126516.svg">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.google.com/maps/dir//{{ user.location.coordinates.latitude }},{{ user.location.coordinates.longitude }}/@{{ user.location.coordinates.latitude }},{{ user.location.coordinates.longitude }},12z/data=!3m1!4b1!4m2!4m1!3e3">
+          <img src="https://image.flaticon.com/icons/svg/684/684809.svg">
+        </a>
+      </li>
+    </ul>
+  </ng-container>
+</aside>
